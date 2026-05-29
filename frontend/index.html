@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Guard | Fake Trend Detection</title>
+    <!-- Modern Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="glass-bg"></div>
+    <div class="container">
+        <header>
+            <div class="logo">
+                <span class="icon">🛡️</span>
+                <h1>Smart Guard AI</h1>
+            </div>
+            <p class="subtitle">Detect Institutional Traps & Fake Market Trends using Machine Learning</p>
+        </header>
+
+        <div class="search-section">
+            <form id="searchForm">
+                <input type="text" id="tickerInput" placeholder="Enter Ticker Symbol (e.g. RELIANCE, TCS, HDFCBANK)" required autocomplete="off">
+                <button type="submit" id="analyzeBtn">Analyze Trend</button>
+            </form>
+            <div id="loading" class="hidden">
+                <div class="spinner"></div>
+                <p>Analyzing price-volume divergence & candle psychology...</p>
+            </div>
+        </div>
+
+        <div id="resultsSection" class="results-container hidden">
+            <!-- Summary Card -->
+            <div class="result-card glass-panel" id="verdictCard">
+                <div class="verdict-header">
+                    <h2 id="verdictText">TREND VERDICT</h2>
+                    <div class="confidence" id="confidenceScore">0% Confidence</div>
+                </div>
+                <p id="reasoningText" class="reasoning">Waiting for analysis...</p>
+                <div class="market-data">
+                    <div class="data-box">
+                        <span class="label">Latest Price</span>
+                        <span class="value" id="latestPrice">-</span>
+                    </div>
+                    <div class="data-box">
+                        <span class="label">Latest Volume</span>
+                        <span class="value" id="latestVolume">-</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Chart Section -->
+            <div class="chart-container glass-panel">
+                <h3>Price vs Volume History (30 Days)</h3>
+                <div class="canvas-wrapper">
+                    <canvas id="trendChart"></canvas>
+                </div>
+            </div>
+        </div>
+        
+        <div id="errorBox" class="error-msg hidden"></div>
+    </div>
+
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="dashboard_charts.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

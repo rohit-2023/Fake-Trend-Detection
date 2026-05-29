@@ -1,0 +1,31 @@
+Fake-Trend-Detection/
+│
+├── 📂 data_engine/            # Part 1: Data & Training
+│   ├── trainer.py             # yfinance se data lene aur model train karne ki script
+│   ├── features.py            # RSI, Volume Spread, Wick Ratio nikalne ka logic
+│   └── nifty500_list.csv      # Nifty 500 stocks ki reference list
+│   └── ensemble_logic.py     # Teeno models ki voting karwane ka logic
+│
+├── 📂 models/                 # Part 2: Saved Brains
+│   ├── xgboost_model.pkl      # Trained XGBoost model file
+│   ├── rf_model.pkl           # Trained Random Forest model file
+│   └── scaler.pkl             # Data normalization ke liye saved scaler
+│
+├── 📂 backend/                # Part 3: The API Server (FastAPI)
+│   ├── main.py                # FastAPI endpoints (POST /predict)
+│   └── utils.py               # Live data processing functions
+│
+├── 📂 frontend/               # Part 4: The User Dashboard
+│   ├── index.html             # Search box aur charts ka structure
+│   ├── style.css              # Dark theme aur UI designing
+│   └── script.js              # Fetch API aur Chart.js ka logic
+│   └── dashboard_charts.js   # Prediction ke sath visual "Heatmap" dikhane ke liye
+│
+├── 📂 research_notebooks/    # Research proofs ke liye
+│   └── backtesting.ipynb     # Past patterns par accuracy check karne ki report
+│
+├── requirements.txt           # Saari libraries (yfinance, xgboost, fastapi, etc.)
+└── README.md                  # Project ka description aur setup guide
+
+
+Wick Ratio = "(High - Close)/(High - Low)".
